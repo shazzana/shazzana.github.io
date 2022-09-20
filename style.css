@@ -1,0 +1,100 @@
+body {
+    background-image: url("./park-bg2.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#heading {
+    font-family: 'Bungee Shade', cursive;
+    text-align: center;
+    font-size: 100px;
+}
+
+#container {
+    display: flex;
+}
+
+#building {
+    flex-basis: auto;
+    height: 750px;
+    width: 1250px;
+    background-color: #FFFFA7;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.window {
+    height: 300px;
+    width: 300px;
+    background-color:#9addfb;
+    margin: 30px;
+    position: relative;
+}
+
+.cat {
+    height: 225px;
+    width: 250px;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+
+}
+
+#console {
+    flex-basis: auto;
+    height: 750px;
+    width: 350px;
+    background-color: #FFFFA7;
+    display: block;
+    margin: 0 auto;
+
+}
+
+
+#start-pause-reset {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    flex-basis: auto;
+    height: 70px;
+    width: 70px;
+    margin: 20px 10px 0 10px;
+    background-color:lightpink;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 2px 2px 1px #aaaaaa;
+}
+
+.fa-solid fa-play {
+    color:#9addfb;
+}
+.console-div {
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    background-color: #FFFFA7;
+    font-size: 30px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#score, #timer {
+    height: 100px;
+    width: 250px;
+    background-color: lightpink;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    font-size: 100px;
+    margin: 0 auto;
+    text-align: right;
+    margin-top: 20px;
+}
+
+#timer {
+    text-align: center;
+}
