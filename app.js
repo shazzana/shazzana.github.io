@@ -3,7 +3,9 @@ $(() => {
 // When player presses play button, 
     const $playBtn = $("button#start");
     const $pauseBtn = $("button#pause");
-    const $resetBtn = $("button#reset")
+    const $resetBtn = $("button#reset");
+
+
 
 
 
@@ -28,6 +30,7 @@ $(() => {
             $("#score").text(points);
         })
     }
+    let startGame
 
     const catAppearsInt = () => {
         startGame = setInterval(catAppears, 2000);
@@ -37,44 +40,42 @@ $(() => {
         clearInterval(startGame);
     }
 
-    
-    const time = 1, display = $("#timer")
+    const startingMinutes = 1;
+    let time = startingMinutes * 60;
 
-    const startTimer = (duration, display) => {
+    const timer = $("#timer")
 
-   
-        const timer = duration, minutes, seconds;
+    let timerInterval
+    let pauseTimer
 
-        
-            
+    const startTimer = () => {
+
         const updateCountdown = () => {
-            minutes = parseInt (timer/ 60, 10)
-            seconds = parseInt(timer % 60, 10);
+            const minutes = Math.floor(time / 60);
+            let seconds = time % 60;
 
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            timer.text(`${minutes} : ${seconds}`);
+            time--;
 
-            display.text(`${minutes} : ${seconds}`);
-
-            if  (timer < 0) {
-                timer = duration;
-                clearInterval(timerInterval);
+                if (time < 0) {
+                    clearInterval(timerInterval);
+                    clearInterval(startGame);
+                    alert (`Time's up! You got ${points} cats in the bag!`);
+                }
             }
-        }
 
-        const timerInterval = setInterval(updateCountdown, 1000);
+    timerInterval = setInterval(updateCountdown, 1000);
     }
 
-    const pauseTimer = () => {
-        clearInterval(startTimer);
+    pauseTimer = () => { //figure out where it should be 
+        clearInterval(timerInterval);
     }
 
     $playBtn.on("click", () => {
         console.log("play");
         catAppearsInt();
-        startTimer(time, display, () => {
-            console.log("time's up!")
-        })
+        startTimer();
     })
 
     $pauseBtn.on("click", () => {
