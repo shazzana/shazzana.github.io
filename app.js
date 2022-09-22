@@ -37,28 +37,32 @@ $(() => {
         clearInterval(startGame);
     }
 
+    
     const time = 1, display = $("#timer")
-    const timer = duration, minutes, seconds;
-
-    const timerInterval = setInterval(updateCountdown, 1000);
 
     const startTimer = (duration, display) => {
-        timerInterval;
-    }
 
-    const updateCountdown = () => {
-        minutes = parseInt (timer/ 60, 10)
-        seconds = parseInt(timer % 60, 10);
+   
+        const timer = duration, minutes, seconds;
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+        
+            
+        const updateCountdown = () => {
+            minutes = parseInt (timer/ 60, 10)
+            seconds = parseInt(timer % 60, 10);
 
-        display.text(`${minutes} : ${seconds}`);
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        if  (timer < 0) {
-            timer = duration;
-            clearInterval(timerInterval);
+            display.text(`${minutes} : ${seconds}`);
+
+            if  (timer < 0) {
+                timer = duration;
+                clearInterval(timerInterval);
+            }
         }
+
+        const timerInterval = setInterval(updateCountdown, 1000);
     }
 
     const pauseTimer = () => {
