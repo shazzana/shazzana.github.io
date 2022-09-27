@@ -5,12 +5,26 @@ $(() => {
     const $pauseBtn = $("button#pause");
     const $resetBtn = $("button#reset");
 
+    let points = 0;
 
+    let startGame;
 
+    const timer = $("#timer")
 
+    let timerInterval;
+    let pauseTimer;
+
+    // const cursor = $("img");
+
+// // to have an image as the cursor
+
+//     $("body").on("mouseover", (e) => {
+//         cursor.style.top = e.pageY + "px";
+//         cursor.style.left = e.pageX + "px";
+//     })
 
 // a random window will show cat for an amount of time, then hide it
-    let points = 0;
+    
     
     const catAppears = () => {
         console.log("hello");
@@ -30,7 +44,7 @@ $(() => {
             $("#score").text(points);
         })
     }
-    let startGame
+    
 
     const catAppearsInt = () => {
         startGame = setInterval(catAppears, 2000);
@@ -43,10 +57,7 @@ $(() => {
     const startingMinutes = 1;
     let time = startingMinutes * 60;
 
-    const timer = $("#timer")
-
-    let timerInterval
-    let pauseTimer
+    
 
     const startTimer = () => {
 
@@ -57,18 +68,19 @@ $(() => {
             seconds = seconds < 10 ? '0' + seconds : seconds;
             timer.text(`${minutes} : ${seconds}`);
             time--;
-
+                // When timer reaches zero, end game "congratulations, you got (score) cats in the bag!"
                 if (time < 0) {
                     clearInterval(timerInterval);
                     clearInterval(startGame);
-                    alert (`Time's up! You got ${points} cats in the bag!`);
+                    confirm (`Wowza! You got ${points} cats in the bag!`);
+                    location.reload(true);
                 }
             }
 
     timerInterval = setInterval(updateCountdown, 1000);
     }
 
-    pauseTimer = () => { //figure out where it should be 
+    pauseTimer = () => { 
         clearInterval(timerInterval);
     }
 
@@ -95,6 +107,6 @@ $(() => {
 
 
 
-// When timer reaches zero, end game "congratulations, you got (score) cats in the bag!"
+
 
 })
