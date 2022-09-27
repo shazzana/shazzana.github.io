@@ -5,8 +5,18 @@ $(() => {
     const $pauseBtn = $("<button>").addClass("button").attr("id", "pause");
     const $pauseIcon = $("<i>").addClass("fa-solid fa-pause").text("Pause");
     $pauseBtn.append($pauseIcon)
-
     const $resetBtn = $("button#reset");
+    const $buttonHover = $("#button-hover");
+    const $buttonClick = $("#button-click");
+    const $gameAudio = $("#game-audio");
+    const $endGame = $("#endgame");
+
+    $(".button").on("mouseover", () => {
+        $buttonHover.get(0).play();
+    }).on("click", () => {
+        $buttonClick.get(0).play();
+    });
+
 
     let points = 0;
 
@@ -66,6 +76,8 @@ $(() => {
                 if (time < 0) {
                     clearInterval(timerInterval);
                     clearInterval(startGame);
+                    $gameAudio.get(0).pause();
+                    $endGame.get(0).play();
                     confirm (`Wowza! You got ${points} cats in the bag!`);
                     location.reload(true);
                 }
@@ -84,6 +96,7 @@ $(() => {
         startTimer();
         $playBtn.remove();
         $(".start-pause").append($pauseBtn);
+        $gameAudio.get(0).play();
     })
 
     $pauseBtn.on("click", () => {
@@ -91,10 +104,13 @@ $(() => {
         pauseGame();
         pauseTimer();
         $pauseBtn.remove();
-        $(".start-pause").append($playBtn)
+        $(".start-pause").append($playBtn);
+        $gameAudio.get(0).pause();
     })
 
     $resetBtn.on("click", () => {
+        $gameAudio.get(0).pause();
+        confirm (`So soon??? You only got ${points} cats in the bag!`);
         location.reload(true);
     })
 

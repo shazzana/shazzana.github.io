@@ -23,7 +23,7 @@ body {
     justify-content: space-evenly;
     margin: 0 auto;
     flex-wrap: wrap;
-    cursor: url("./net.png"), auto;
+    cursor: url("./net.png") 40 -100, auto;
 }
 
 .window {
