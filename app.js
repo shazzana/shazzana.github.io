@@ -10,6 +10,7 @@ $(() => {
     const $buttonClick = $("#button-click");
     const $gameAudio = $("#game-audio");
     const $endGame = $("#endgame");
+    const $catch = $("#catch");
 
     $(".button").on("mouseover", () => {
         $buttonHover.get(0).play();
@@ -43,6 +44,7 @@ $(() => {
 // If player clicks on cat, something happens
         $(".cat").on("click", () => {
             console.log("I clicked on a cat!");
+            $catch.get(0).play();
             // create function to add points everytime player clicks on a cat (variable declared outside of scope)
             points++ ;
             $("#score").text(points);
