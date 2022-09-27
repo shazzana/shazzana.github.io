@@ -75,6 +75,10 @@ body {
 .fa-solid fa-play {
     color:#9addfb;
 }
+
+.fa-solid fa-pause {
+    display: none;
+}
 .console-div {
     font-family: 'ZCOOL QingKe HuangYou', cursive;
     background-color: #FFFFA7;
@@ -92,6 +96,8 @@ body {
     margin: 0 auto;
     text-align: right;
     margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 1px #aaaaaa;
 }
 
 #timer {

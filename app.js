@@ -2,7 +2,10 @@ $(() => {
 
 // When player presses play button, 
     const $playBtn = $("button#start");
-    const $pauseBtn = $("button#pause");
+    const $pauseBtn = $("<button>").addClass("button").attr("id", "pause");
+    const $pauseIcon = $("<i>").addClass("fa-solid fa-pause").text("Pause");
+    $pauseBtn.append($pauseIcon)
+
     const $resetBtn = $("button#reset");
 
     let points = 0;
@@ -13,15 +16,6 @@ $(() => {
 
     let timerInterval;
     let pauseTimer;
-
-    // const cursor = $("img");
-
-// // to have an image as the cursor
-
-//     $("body").on("mouseover", (e) => {
-//         cursor.style.top = e.pageY + "px";
-//         cursor.style.left = e.pageX + "px";
-//     })
 
 // a random window will show cat for an amount of time, then hide it
     
@@ -88,12 +82,16 @@ $(() => {
         console.log("play");
         catAppearsInt();
         startTimer();
+        $playBtn.remove();
+        $(".start-pause").append($pauseBtn);
     })
 
     $pauseBtn.on("click", () => {
         console.log("pause");
         pauseGame();
         pauseTimer();
+        $pauseBtn.remove();
+        $(".start-pause").append($playBtn)
     })
 
     $resetBtn.on("click", () => {

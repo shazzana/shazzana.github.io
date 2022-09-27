@@ -17,12 +17,14 @@
     </style>
   </head>
   <body>
+    <audio id="game-audio" src="game-audio.mp3"></audio>
+    <audio id="catch" src="meow.mp3"></audio>
+    <audio id="button-hover" src="button-hover.mp3"></audio>
+    <audio id="button-click" src="button-click.mp3"></audio>
+    <audio id="endgame" src="endgame.mp3"></audio>
     <div>
       <h1 id="heading">Catch-a-cat!</h1>
     </div>
-    <!-- <div class="cursor">
-      <img src="./net.png" />
-    </div> -->
     <div id="container">
       <div id="building">
         <div class="window" id="box1"></div>
@@ -35,15 +37,21 @@
     <div id="console">
       <div class="console-div">Controls
         <div id="start-pause-reset">
-          <button class="button" id="start">
-            <i class="fa-solid fa-play icon-2x">Play</i>
-          </button>
-          <button class="button" id="pause">
+          <div class="start-pause">
+            <button class="button" id="start">
+              <i class="fa-solid fa-play icon-2x">Play</i>
+            </button>
+          </div>
+          <div>
+            <button class="button" id="reset">
+              <i class="fa-solid fa-rotate-right">Reset</i>
+            </button>
+          </div>
+          
+          <!-- <button class="button" id="pause">
             <i class="fa-solid fa-pause">Pause</i>
-          </button>
-          <button class="button" id="reset">
-            <i class="fa-solid fa-rotate-right">Reset</i>
-          </button>
+          </button> -->
+          
         </div>
       </div>
         <div class="console-div">Timer
