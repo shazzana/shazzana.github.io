@@ -23,7 +23,7 @@ body {
     justify-content: space-evenly;
     margin: 0 auto;
     flex-wrap: wrap;
-    cursor: url("./net.png") 40 -100, auto;
+    cursor: url("./net.png") 60 20, auto;
 }
 
 .window {
@@ -32,6 +32,7 @@ body {
     background-color:#9addfb;
     margin: 30px;
     position: relative;
+    overflow: hidden;
 }
 
 .cat {
@@ -42,6 +43,16 @@ body {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    animation: appear 0.5s linear;
+}
+
+@keyframes appear {
+    from {
+        bottom: -225px;
+    }
+    to {
+        bottom: 0;
+    }
 }
 
 #console {
@@ -72,13 +83,19 @@ body {
     box-shadow: 2px 2px 1px #aaaaaa;
 }
 
-.fa-solid fa-play {
-    color:#9addfb;
+.button:hover {
+    background-color: #9addfb;
 }
 
-.fa-solid fa-pause {
-    display: none;
+.button:active {
+    background-color: #9addfb;
+    transform: translateY(4px);
 }
+
+.start-pause {
+    display: flex;
+}
+
 .console-div {
     font-family: 'ZCOOL QingKe HuangYou', cursive;
     background-color: #FFFFA7;

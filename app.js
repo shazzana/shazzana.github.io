@@ -70,12 +70,15 @@ $(() => {
         const updateCountdown = () => {
             const minutes = Math.floor(time / 60);
             let seconds = time % 60;
+            
 
             seconds = seconds < 10 ? '0' + seconds : seconds;
-            timer.text(`${minutes} : ${seconds}`);
             time--;
+            timer.text(`${minutes} : ${seconds}`);
+
                 // When timer reaches zero, end game "congratulations, you got (score) cats in the bag!"
                 if (time < 0) {
+                    console.log(seconds);
                     clearInterval(timerInterval);
                     clearInterval(startGame);
                     $gameAudio.get(0).pause();
@@ -99,8 +102,16 @@ $(() => {
         $playBtn.remove();
         $(".start-pause").append($pauseBtn);
         $gameAudio.get(0).play();
+        $pauseBtn.on("click", () => {
+            console.log("pause");
+            pauseGame();
+            pauseTimer();
+            $pauseBtn.remove();
+            $(".start-pause").append($playBtn);
+            $gameAudio.get(0).pause();
+        })
     })
-
+// boolean => is it pause/not pause, global 
     $pauseBtn.on("click", () => {
         console.log("pause");
         pauseGame();
@@ -108,6 +119,14 @@ $(() => {
         $pauseBtn.remove();
         $(".start-pause").append($playBtn);
         $gameAudio.get(0).pause();
+        $playBtn.on("click", () => {
+            console.log("play");
+            catAppearsInt();
+            startTimer();
+            $playBtn.remove();
+            $(".start-pause").append($pauseBtn);
+            $gameAudio.get(0).play();
+        })
     })
 
     $resetBtn.on("click", () => {
@@ -118,11 +137,5 @@ $(() => {
 
 
 // Timer will start counting down
-
-
-
-
-
-
 
 })
