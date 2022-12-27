@@ -63,17 +63,14 @@ $(() => {
     const startingMinutes = 1;
     let time = startingMinutes * 60;
 
-    
-
     const startTimer = () => {
 
         const updateCountdown = () => {
+            // Original code
+            time--;
             const minutes = Math.floor(time / 60);
             let seconds = time % 60;
-            
-
             seconds = seconds < 10 ? '0' + seconds : seconds;
-            time--;
             timer.text(`${minutes} : ${seconds}`);
 
                 // When timer reaches zero, end game "congratulations, you got (score) cats in the bag!"
@@ -84,6 +81,7 @@ $(() => {
                     $gameAudio.get(0).pause();
                     $endGame.get(0).play();
                     confirm (`Wowza! You got ${points} cats in the bag!`);
+                    timer.text(`0 : 00`);
                     location.reload(true);
                 }
             }
