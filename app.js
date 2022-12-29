@@ -37,7 +37,7 @@ $(() => {
     $("#box" + randomBox).append(cat);
     setTimeout(() => {
       $(".cat").remove();
-    }, 900);
+    }, 1200);
 
     // If player clicks on cat, something happens
     $(".cat").on("click", () => {

@@ -17,28 +17,30 @@ body {
 }
 
 #building {
-    height: 750px;
+    height: 675px;
     width: 100%;
     background-color: #FFFFA7;
-    display: inline-block;
-    justify-content: space-evenly;
+    display: flex;
+    justify-content: center;
+    align-content: start;
     margin: 0 auto;
     flex-wrap: wrap;
     cursor: url("./net.png") 60 20, auto;
 }
 
 .window {
-    height: 300px;
-    width: 100%;
+    height: 95px;
+    width: 95px;
     background-color:#9addfb;
-    margin: 30px;
+    margin: 10px;
     position: relative;
     overflow: hidden;
+    /* flex-basis:auto */
 }
 
 .cat {
-    height: 225px;
-    width: 250px;
+    height: 85px;
+    width: 95px;
     position: absolute;
     z-index: 1;
     bottom: 0;
