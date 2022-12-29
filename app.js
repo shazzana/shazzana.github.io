@@ -2,7 +2,7 @@ $(() => {
   // When player presses play button,
   const $playBtn = $("button#start");
   const $pauseBtn = $("<button>").addClass("button").attr("id", "pause");
-  const $pauseIcon = $("<i>").addClass("fa-solid fa-pause").text("Pause");
+  const $pauseIcon = $("<i>").addClass("fa-solid fa-pause");
   $pauseBtn.append($pauseIcon);
   const $resetBtn = $("button#reset");
   const $buttonHover = $("#button-hover");
@@ -37,7 +37,7 @@ $(() => {
     $("#box" + randomBox).append(cat);
     setTimeout(() => {
       $(".cat").remove();
-    }, 900);
+    }, 1200);
 
     // If player clicks on cat, something happens
     $(".cat").on("click", () => {
