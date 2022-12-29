@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catch-a-cat!</title>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="app.js"charset="utf-8"></script>
@@ -26,6 +26,24 @@
       <h1 id="heading">Catch-a-cat!</h1>
     </div>
     <div id="container">
+      <div id="console">
+        <div class="console-div">
+            <div id="timer">1 : 00</div>
+            <div id="score">0</div>
+            <div class="start-pause">
+              <button class="button" id="start">
+                <i class="fa-solid fa-play icon-2x"></i>
+              </button>
+            </div>
+            <div class="reset">
+              <button class="button" id="reset">
+                <i class="fa-solid fa-rotate-right"></i>
+              </button>
+            </div>
+        </div>
+
+
+            
       <div id="building">
         <div class="window" id="box1"></div>
         <div class="window" id="box2"></div>
@@ -33,27 +51,6 @@
         <div class="window" id="box4"></div>
         <div class="window" id="box5"></div>
         <div class="window" id="box6"></div>
-      </div>
-    <div id="console">
-      <div class="console-div">Controls
-        <div id="start-pause-reset">
-          <div class="start-pause">
-            <button class="button" id="start">
-              <i class="fa-solid fa-play icon-2x">Play</i>
-            </button>
-          </div>
-          <div>
-            <button class="button" id="reset">
-              <i class="fa-solid fa-rotate-right">Reset</i>
-            </button>
-          </div>
-        </div>
-      </div>
-        <div class="console-div">Timer
-          <div id="timer">1 : 00</div>
-        </div>
-        <div class="console-div">Score
-          <div id="score">0</div>
       </div>
     </div>
     
